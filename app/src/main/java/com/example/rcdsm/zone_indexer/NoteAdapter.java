@@ -60,7 +60,7 @@ public class NoteAdapter extends BaseAdapter {
         }
 
         holder.title.setText(notes.get(position).getTitle());
-        holder.littleContent.setText(notes.get(position).getContent().substring(0, 20) + "...");
+        holder.littleContent.setText(notes.get(position).getContent()); //.substring(0, 20) + "...");
 
         return convertView;
     }

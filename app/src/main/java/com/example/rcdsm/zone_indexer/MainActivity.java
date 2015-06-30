@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.rcdsm.zone_indexer.Entity.Coordinates;
@@ -41,6 +42,7 @@ public class MainActivity extends ActionBarActivity implements Note.NoteManageme
     NoteAdapter adapter;
     Location mLastLocation;
     private GoogleApiClient mGoogleApiClient;
+    TextView userName;
     //test
     Coordinates testLocation;
 
@@ -54,6 +56,9 @@ public class MainActivity extends ActionBarActivity implements Note.NoteManageme
         this.list_notes = (ListView)findViewById(R.id.main_list);
         this.notes = new ArrayList<Note>();
         Zone.getAllZones(this, this);
+
+        userName = (TextView) findViewById(R.id.userName);
+        userName.setText(User.currentUser.getMail());
 
         //Instanciate GoogleAPI client
         mGoogleApiClient = new GoogleApiClient.Builder(this)
@@ -233,4 +238,6 @@ public class MainActivity extends ActionBarActivity implements Note.NoteManageme
     /* -------------------------------------- */
     /* ---------- End ZoneManagement -------- */
     /* -------------------------------------- */
+
 }
+
